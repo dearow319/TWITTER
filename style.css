@@ -1,196 +1,220 @@
-/* ===== Reset & Base ===== */
-* { box-sizing: border-box; }
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption,
-tbody, tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption, footer,
-header, hgroup, menu, nav, output, ruby, section,
-summary, time, mark, audio, video, button {
-  margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline;
-}
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-body { line-height: 1; }
-ol, ul { list-style: none; }
-table { border-collapse: collapse; border-spacing: 0; }
-
 :root{
-  --brand:#1DA1F2;
-  --text:#555;
-  --muted:#888;
-  --line:#eee;
-  --bg:#f5f8fa;
-  --card:#fff;
+  --brand:#000;
+  --bg:#fff;
+  --muted:#536471;
+  --line:#e5e7eb;
+
+  --layout-max: 1040px;
+  --menu-w:     170px;
+  --feed-w:     500px;
+  --side-w:     260px;
 }
 
-/* ===== Layout ===== */
+/* ===== 좌우 검정, 중앙 흰색 ===== */
+html,body{ height:100%; margin:0; }
 body{
-  display:flex; gap:24px;
-  align-items:flex-start;
-  justify-content:center;
-  width:100%;
-  max-width:1200px;
+  background:#000;                 /* 좌우 여백 검정 */
+  color:var(--brand);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+}
+#app{
+  min-height:100vh;
+  max-width:var(--layout-max);
   margin:0 auto;
-  padding:24px 16px;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  padding:24px 12px;
+  display:flex; gap:20px;
+  background:var(--bg);            /* 중앙 영역 흰색 */
 }
 
-/* ===== Left Menu ===== */
-menu{
-  position:sticky; top:24px;
-  display:flex; flex-direction:column; gap:6px;
-  width:220px;
-}
-
+/* ===== 좌측 메뉴 ===== */
+menu{ width:var(--menu-w); display:flex; flex-direction:column; gap:14px; }
 .menu{
-  display:flex; align-items:center; gap:12px;
-  padding:10px 12px; border-radius:24px;
-  transition:background .15s ease;
-  cursor:pointer;
+  display:flex; align-items:center; gap:10px;
+  padding:6px 8px; border-radius:8px; cursor:pointer;
+  font-size:15px; font-weight:600;
 }
-.menu:hover{ background:#eaf5fe; }
-.menu i{ font-size:20px; color:var(--brand); width:22px; text-align:center; }
-.menu-name{ font-size:16px; font-weight:700; color:var(--text); }
-
-#menu-twit{
-  margin-top:12px;
-  padding:10px 16px;
-  border:none; border-radius:24px;
-  background:var(--brand); color:#fff;
-  font-size:16px; font-weight:700; cursor:pointer;
+.menu i{ font-size:18px; color:var(--brand); width:20px; text-align:center; }
+.menu-name{ color:var(--brand); }
+/* 요청: 활성 회색 배경 제거 */
+/* .menu.active{ background:#f3f4f6; } */
+#menu-post{
+  margin-top:6px; padding:8px 12px; border:none; border-radius:20px;
+  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
 }
 
-/* ===== Main ===== */
+/* ===== 메인 ===== */
 main{
-  flex:1 1 640px;
+  width:var(--feed-w);
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:#fff;
   display:flex; flex-direction:column;
-  background:var(--card);
-  border:2px solid var(--line);
-  border-radius:12px; overflow:hidden;
+  overflow:hidden;                 /* 내부 경계 깔끔하게 */
 }
 
-/* Header */
+/* 상단 헤더(로고/리프레시) — 탭과 '완전 밀착' */
 #header{
   display:flex; align-items:center; justify-content:space-between;
-  padding:8px 12px; border-bottom:2px solid var(--line);
-  background:#fff;
+  padding:8px 12px 0;             /* ↓ 아래 패딩 제거 */
+  margin:0;
+  border-bottom:none;              /* 헤더 보더 제거 */
 }
-#logo{ width:32px; height:32px; display:flex; align-items:center; justify-content:center; }
-.fa-twitter{ color:var(--brand); font-size:22px; }
-#redo{ background:#fff; border:none; cursor:pointer; padding:6px 8px; border-radius:8px; }
-.fa-redo-alt{ color:var(--brand); font-size:18px; }
+#logo i{ font-size:22px; color:var(--brand); }
+#refresh{ border:none; background:transparent; cursor:pointer; color:var(--brand); }
 
-/* Compose */
-#writing-section{
-  display:flex; gap:16px;
-  width:100%; padding:16px 12px;
-  border-bottom:2px solid var(--line);
-  background:#fff;
+/* 추천/팔로잉 탭 — 위 여백 0, 라인은 탭 쪽에서 처리 */
+#timeline-tabs{
+  display:flex;
+  justify-content:space-around;
+  margin:0;                        /* 위/아래 여백 0 */
+  padding:0;                       /* 위/아래 여백 0 */
+  border-top:1px solid var(--line);/* 헤더 대신 여기서 경계선 */
+  border-bottom:1px solid var(--line);
 }
-#writing-section > div{ margin:0; }
-#new-userimg{
-  flex:0 0 48px; height:48px;
-  background:var(--muted); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
+#timeline-tabs .tab{
+  flex:1;
+  margin:0;
+  padding:10px 0;                  /* 텍스트만 보이도록 최소 패딩 */
+  line-height:1;                   /* 추가 세로여백 제거 */
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
 }
-.fa-user{ color:#fff; font-size:18px; }
-#new-comment{ flex:1; display:flex; align-items:center; gap:12px; }
-#uploadComment{
-  flex:1; min-height:42px; padding:10px 12px;
-  border:none; outline:none; font-size:16px; background:transparent;
-}
-#uploadBtn{
-  flex:0 0 auto; height:40px; padding:0 16px;
-  border:none; border-radius:20px; background:var(--brand); color:#fff;
-  font-weight:700; cursor:pointer;
+#timeline-tabs .tab.active{
+  color:var(--brand);
+  font-weight:700;
+  border-bottom:3px solid #000;    /* 밑줄 = 검정 */
 }
 
-/* Feed */
-#contents-section{ width:100%; background:#fff; }
-#contents{ width:100%; display:flex; flex-direction:column; }
-.content{
-  display:flex; gap:12px;
-  padding:16px 12px;
-  border-bottom:2px solid var(--line);
+/* ===== 작성 박스 ===== */
+#compose{
+  display:flex; gap:10px;
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
 }
-.content:last-child{ border-bottom:none; }
-.content .user-img{
-  flex:0 0 48px; height:48px;
-  border:2px solid var(--line); border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-}
-.user-img .fa-user{ color:#777; font-size:18px; }
-.user-comment{ flex:1; min-width:0; }
-.user-comment .username{ display:block; font-size:16px; font-weight:700; color:var(--text); }
-.user-comment .comment{ margin-top:6px; font-size:15px; line-height:1.5; color:var(--text); }
-.user-comment .createdAt{ display:block; margin-top:6px; font-size:12px; color:#aaa; }
-
-/* ===== Right Sidebar ===== */
-#sidebar{
-  position:sticky; top:24px;
-  display:flex; flex-direction:column; gap:16px;
-  width:300px;
-}
-#sidebar > section{ width:100%; }
-
-#searchbar{
-  display:flex; align-items:center; gap:10px;
-  width:100%; height:40px; padding:0 14px;
-  background:#e6ecf0; border-radius:20px;
-}
-#searchbar input{
-  flex:1; border:none; outline:none; background:transparent; font-size:14px;
-}
-#searchbar i{ color:#9aa9b2; }
-
-#trendbar{
-  background:#fff; border-radius:12px; overflow:hidden;
+.user-avatar{
+  --avatar:none;
+  flex:0 0 36px; height:36px; border-radius:50%;
   border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  color:#6b7280; background:#f1f3f5;
+  background-image:var(--avatar); background-size:cover; background-position:center;
 }
-#mytrend{
-  display:flex; align-items:center; height:50px; padding:0 16px;
-  border-bottom:1px solid var(--line); font-size:16px; font-weight:700; color:var(--text);
+.user-avatar.has-img i{ opacity:0; }        /* 커스텀 이미지 쓰면 아이콘 숨김 */
+.compose-box{ flex:1; display:flex; align-items:center; gap:8px; }
+.compose-box input{ flex:1; border:none; outline:none; font-size:14px; }
+.compose-box button{
+  padding:6px 12px; border:none; border-radius:20px;
+  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
 }
-.trend{ padding:12px 16px; border-bottom:1px solid var(--line); color:var(--muted); }
-.trend:last-child{ border-bottom:none; }
-.trend-subtitle{ font-size:12px; }
-.trend-hashtag{ margin-top:4px; font-size:15px; font-weight:800; color:var(--text); }
-.trend-twitcount{ margin-top:4px; font-size:12px; font-weight:600; color:#aaa; }
-#trend-more{ padding:12px 16px; color:var(--brand); cursor:pointer; }
 
-/* ===== Responsive ===== */
+/* ===== 피드 ===== */
+#feed ul{ list-style:none; margin:0; padding:0; }
+.tweet{
+  display:flex; gap:10px;
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+}
+.tweet:last-child{ border-bottom:none; }
+.tweet .user-avatar{ flex:0 0 36px; height:36px; }
+.tweet-content{ flex:1; min-width:0; }
+.username{ font-weight:700; font-size:14px; }
+.text{ margin:4px 0; font-size:14px; line-height:1.5; }
+.time{ display:block; font-size:12px; color:var(--muted); }
+.tweet-actions{
+  display:flex; gap:32px; margin-top:6px;
+  color:var(--muted); font-size:13px;
+}
+.tweet-actions button{
+  display:flex; align-items:center; gap:6px;
+  border:none; background:transparent; cursor:pointer; color:inherit;
+}
+.tweet-actions button:hover{ color:var(--brand); }
+
+/* ===== 우측 사이드 ===== */
+#sidebar{ width:var(--side-w); display:flex; flex-direction:column; gap:14px; }
+#searchbar{
+  display:flex; align-items:center; gap:8px;
+  background:#f3f4f6; border-radius:20px; padding:8px 12px;
+}
+#searchbar input{ border:none; outline:none; background:transparent; flex:1; font-size:14px; }
+#searchbar i{ color:var(--muted); }
+
+#subscribe-card{
+  padding:12px; border:1px solid var(--line); border-radius:12px; background:#fff;
+}
+#subscribe-card strong{ font-weight:800; font-size:15px; display:block; margin-bottom:6px; }
+#subscribe-card p{ font-size:13px; line-height:1.4; margin-bottom:10px; color:var(--muted); }
+#subscribe-card .btn-subscribe{
+  padding:8px 12px; border:none; border-radius:20px;
+  background:var(--brand); color:#fff; font-weight:700; cursor:pointer;
+}
+
+/* 트렌드 (해시태그 작게) */
+#trendbar{ background:#f9fafb; border-radius:12px; padding:10px; }
+.trend-title{ font-weight:700; margin-bottom:6px; }
+.trend{ padding:8px 0; border-bottom:1px solid var(--line); }
+.trend:last-child{ border:none; }
+.trend-hash{ font-weight:700; font-size:13px; }
+.trend-count{ font-size:12px; color:var(--muted); }
+.trend-more{ color:var(--brand); margin-top:8px; cursor:pointer; font-size:14px; }
+
+/* ===== 리셋(혹시 기본 여백 생길 경우 방지) ===== */
+button{ margin:0; }
+
+/* ===== 반응형 ===== */
 @media (max-width: 1100px){
   #sidebar{ display:none; }
+  #app{ gap:16px; }
+  :root{ --layout-max: calc(var(--menu-w) + var(--feed-w) + 40px); }
 }
-
-@media (max-width: 820px){
-  body{ gap:12px; padding:16px 10px; }
+@media (max-width: 720px){
   menu{ width:56px; }
   .menu-name{ display:none; }
-  .menu{ justify-content:center; }
-  #menu-twit{ width:100%; }
+}
+@media (max-width: 600px){
+  #app{ padding:16px 10px; }
+  :root{ --layout-max: 560px; --menu-w: 56px; --feed-w: 94vw; }
+  main{ width:var(--feed-w); }
+}
+/* 1) 헤더 완전히 숨김 → 탭이 최상단으로 */
+#header{
+  display:none !important;
+  height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
 }
 
-@media (max-width: 640px){
-  body{ flex-direction:column; align-items:stretch; max-width:680px; }
-  menu{ position:static; width:100%; flex-direction:row; flex-wrap:wrap; gap:8px; }
-  .menu{ flex:1 1 calc(50% - 8px); justify-content:flex-start; }
-  #menu-twit{ flex:1 1 100%; }
-  main{ order:2; }
+/* 2) 탭 위 여백/선 제거 후 아래만 선 유지 */
+#timeline-tabs{
+  display:flex;
+  justify-content:space-around;
+  margin:0 !important;
+  padding:0 !important;
+  border-top:0 !important;                 /* 위쪽 선/여백 제거 */
+  border-bottom:1px solid var(--line);
 }
 
-:root{
-  --compose-width: 560px; /* 원하는 폭으로 숫자만 조절 */
+/* 3) 탭 버튼 자체 여백 최소화 */
+#timeline-tabs .tab{
+  flex:1;
+  background:none; border:none; cursor:pointer;
+  margin:0 !important;
+  padding:10px 0 !important;               /* 필요하면 8px 또는 6px로 더 줄여도 OK */
+  line-height:1;
+  font-size:14px; font-weight:600; color:var(--muted);
 }
 
-#writing-section{
-  max-width: var(--compose-width);
-  margin: 0 auto; /* 가운데 정렬 */
+/* 4) 활성 탭 밑줄은 검정 */
+#timeline-tabs .tab.active{
+  color:var(--brand);
+  font-weight:700;
+  border-bottom:3px solid #000;
 }
+
+/* (참고) main에 내부 여백이 있으면 제거 */
+main{ padding-top:0 !important; }
