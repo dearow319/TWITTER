@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>X Mockup – Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/34e274a1ff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 좌측 메뉴 -->
+    <menu>
+      <section id="menubar">
+        <a class="menu" href="index.html" title="홈으로">
+          <i class="fas fa-home fa-solid fa-house"></i><p class="menu-name">홈</p>
+        </a>
+        <div class="menu"><i class="far fa-user"></i><p class="menu-name">프로필</p></div>
+        <div class="menu"><i class="fas fa-hashtag"></i><p class="menu-name">탐색하기</p></div>
+        <div class="menu"><i class="far fa-bell"></i><p class="menu-name">알림</p></div>
+        <div class="menu"><i class="far fa-envelope"></i><p class="menu-name">쪽지</p></div>
+        <div class="menu"><i class="far fa-bookmark"></i><p class="menu-name">북마크</p></div>
+        <div class="menu"><i class="fas fa-list"></i><p class="menu-name">리스트</p></div>
+        <div class="menu"><i class="fas fa-ellipsis-h"></i><p class="menu-name">더 보기</p></div>
+        <button id="menu-post" type="button">트윗</button>
+      </section>
+    </menu>
+
+    <!-- 메인: 프로필 -->
+    <main class="profile">
+      <div class="profile-cover" style="--cover:url('covers/sample-cover.jpg')"></div>
+
+      <div class="profile-head">
+        <div class="profile-avatar has-img" style="--avatar:url('profiles/sample-avatar.jpg')">
+          <i class="far fa-user"></i>
+        </div>
+        <div class="profile-actions">
+          <button class="btn ghost" type="button"><i class="far fa-envelope"></i></button>
+          <button class="btn ghost" type="button"><i class="fas fa-ellipsis"></i></button>
+          <button class="btn solid" type="button">프로필 수정</button>
+        </div>
+      </div>
+
+      <section class="profile-info">
+        <h1 class="display-name">
+          승훈 <i class="fas fa-lock" aria-label="비공개"></i>
+          <span class="badge">인증받기</span>
+        </h1>
+        <div class="handle">@NUKALLIP</div>
+        <p class="bio">냉소의 시대는 한물갔어 이제는 감동줘야짜내기의 시대야</p>
+        <ul class="meta">
+          <li><i class="far fa-link"></i> <a href="#" target="_blank" rel="noreferrer">youtu.be/GYSMHmv9fnQ</a></li>
+          <li><i class="far fa-calendar-alt"></i> 가입일: 2025년 5월</li>
+        </ul>
+        <div class="follow-stats"><b>58</b> 팔로우 중 · <b>15</b> 팔로워</div>
+      </section>
+
+      <nav class="profile-tabs" role="tablist" aria-label="프로필 탭">
+        <button class="tab active" role="tab" aria-selected="true">게시물</button>
+        <button class="tab" role="tab">답글</button>
+        <button class="tab" role="tab">하이라이트</button>
+        <button class="tab" role="tab">아티클</button>
+        <button class="tab" role="tab">미디어</button>
+        <button class="tab" role="tab">마음에 들어요</button>
+      </nav>
+
+      <!-- 타임라인 (홈 카드 재사용) -->
+      <section id="feed">
+        <ul>
+          <li class="tweet">
+            <div class="user-avatar has-img" style="--avatar:url('profiles/sample-avatar.jpg')"><i class="far fa-user"></i></div>
+            <div class="tweet-content">
+              <span class="username">승훈</span>
+              <p class="text">@null</p>
+              <span class="time">8월 27일</span>
+              <div class="tweet-actions">
+                <button><i class="far fa-comment"></i><span>0</span></button>
+                <button><i class="fas fa-retweet"></i><span>1</span></button>
+                <button><i class="far fa-heart"></i><span>81</span></button>
+                <button><i class="fas fa-share"></i></button>
+              </div>
+            </div>
+          </li>
+
+          <li class="tweet">
+            <div class="user-avatar has-img" style="--avatar:url('profiles/sample-avatar.jpg')"><i class="far fa-user"></i></div>
+            <div class="tweet-content">
+              <span class="username">승훈</span>
+              <p class="text">메인에 올림 · 이미지/링크 등…</p>
+              <span class="time">8월 27일</span>
+              <div class="tweet-actions">
+                <button><i class="far fa-comment"></i><span>3</span></button>
+                <button><i class="fas fa-retweet"></i><span>2</span></button>
+                <button><i class="far fa-heart"></i><span>10</span></button>
+                <button><i class="fas fa-share"></i></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- 우측 사이드 -->
+    <aside id="sidebar">
+      <div id="searchbar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="검색" />
+      </div>
+      <div id="subscribe-card">
+        <strong>Premium 구독하기</strong>
+        <p>구독하여 새로운 기능을 이용해 보세요.</p>
+        <button class="btn-subscribe" type="button">구독하기</button>
+      </div>
+      <div id="trendbar">
+        <div class="trend-title">나를 위한 트렌드</div>
+        <div class="trend"><div class="trend-hash">#예시</div><div class="trend-count">게시물 1,234</div></div>
+      </div>
+    </aside>
+  </div>
+</body>
+</html>
