@@ -35,7 +35,7 @@ menu{ width:var(--menu-w); display:flex; flex-direction:column; gap:14px; }
 }
 .menu i{ font-size:18px; color:var(--brand); width:20px; text-align:center; }
 .menu-name{ color:var(--brand); }
-/* 요청: 활성 회색 배경 제거 */
+/* 활성 배경 제거(요청) */
 /* .menu.active{ background:#f3f4f6; } */
 #menu-post{
   margin-top:6px; padding:8px 12px; border:none; border-radius:20px;
@@ -52,30 +52,22 @@ main{
   overflow:hidden;                 /* 내부 경계 깔끔하게 */
 }
 
-/* 상단 헤더(로고/리프레시) — 탭과 '완전 밀착' */
-#header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:8px 12px 0;             /* ↓ 아래 패딩 제거 */
-  margin:0;
-  border-bottom:none;              /* 헤더 보더 제거 */
-}
-#logo i{ font-size:22px; color:var(--brand); }
-#refresh{ border:none; background:transparent; cursor:pointer; color:var(--brand); }
+/* 헤더는 숨김 → 탭이 최상단으로 */
+#header{ display:none; }
 
-/* 추천/팔로잉 탭 — 위 여백 0, 라인은 탭 쪽에서 처리 */
+/* ===== 추천/팔로잉 탭 (위 여백 완전 제거) ===== */
 #timeline-tabs{
   display:flex;
   justify-content:space-around;
-  margin:0;                        /* 위/아래 여백 0 */
-  padding:0;                       /* 위/아래 여백 0 */
-  border-top:1px solid var(--line);/* 헤더 대신 여기서 경계선 */
+  margin:0;                        /* nav 기본 마진 제거 */
+  padding:0;                       /* 내부 여백 제거 */
   border-bottom:1px solid var(--line);
 }
 #timeline-tabs .tab{
   flex:1;
   margin:0;
-  padding:10px 0;                  /* 텍스트만 보이도록 최소 패딩 */
-  line-height:1;                   /* 추가 세로여백 제거 */
+  padding:10px 0;                  /* 필요 시 8px/6px로 */
+  line-height:1;
   background:none;
   border:none;
   cursor:pointer;
@@ -86,7 +78,7 @@ main{
 #timeline-tabs .tab.active{
   color:var(--brand);
   font-weight:700;
-  border-bottom:3px solid #000;    /* 밑줄 = 검정 */
+  border-bottom:3px solid #000;    /* 검정 밑줄 */
 }
 
 /* ===== 작성 박스 ===== */
@@ -162,7 +154,7 @@ main{
 .trend-count{ font-size:12px; color:var(--muted); }
 .trend-more{ color:var(--brand); margin-top:8px; cursor:pointer; font-size:14px; }
 
-/* ===== 리셋(혹시 기본 여백 생길 경우 방지) ===== */
+/* ===== 리셋 ===== */
 button{ margin:0; }
 
 /* ===== 반응형 ===== */
@@ -180,41 +172,3 @@ button{ margin:0; }
   :root{ --layout-max: 560px; --menu-w: 56px; --feed-w: 94vw; }
   main{ width:var(--feed-w); }
 }
-/* 1) 헤더 완전히 숨김 → 탭이 최상단으로 */
-#header{
-  display:none !important;
-  height:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  border:0 !important;
-}
-
-/* 2) 탭 위 여백/선 제거 후 아래만 선 유지 */
-#timeline-tabs{
-  display:flex;
-  justify-content:space-around;
-  margin:0 !important;
-  padding:0 !important;
-  border-top:0 !important;                 /* 위쪽 선/여백 제거 */
-  border-bottom:1px solid var(--line);
-}
-
-/* 3) 탭 버튼 자체 여백 최소화 */
-#timeline-tabs .tab{
-  flex:1;
-  background:none; border:none; cursor:pointer;
-  margin:0 !important;
-  padding:10px 0 !important;               /* 필요하면 8px 또는 6px로 더 줄여도 OK */
-  line-height:1;
-  font-size:14px; font-weight:600; color:var(--muted);
-}
-
-/* 4) 활성 탭 밑줄은 검정 */
-#timeline-tabs .tab.active{
-  color:var(--brand);
-  font-weight:700;
-  border-bottom:3px solid #000;
-}
-
-/* (참고) main에 내부 여백이 있으면 제거 */
-main{ padding-top:0 !important; }
