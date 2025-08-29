@@ -1,0 +1,371 @@
+/* css reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* body style */
+body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  margin: 0px auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+}
+
+/* menubar style */
+menu{
+  align-self: flex-start;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu{
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+  height: 40px;
+}
+
+.menu >div{
+  width: 25px;
+  margin: 10px 20px;
+  color: #333;
+}
+
+.menu i{
+  font-size: 22px;
+  color:#1DA1F2
+}
+
+.menu p{
+  font-size: 17px;
+  font-weight: 700;
+  margin : auto 5px ;
+  color: #555;
+  cursor: pointer;
+}
+
+.menu p:hover{
+  color: #1DA1F2;
+}
+
+#menu-twit{
+  width:75%;
+  height: 40px;
+  margin:30px 20px 0px 10px;
+  border: none;
+  outline: none;
+  background-color: #1DA1F2;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* main style */
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  border: none;
+  margin: 0px auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border: #eee 2px solid;
+}
+
+/* header */
+header#header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 48px;
+}
+
+#logo{
+  width: 48px;
+  height: 100%;
+}
+
+.fa-twitter{
+  color: #1DA1F2;
+  font-size: 25px;
+  margin: 4px 20px;
+}
+
+#redo{
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.fa-redo-alt{
+  color: #1DA1F2;
+  font-size: 22px;
+  margin: 4px 20px;
+}
+
+/* writing-section */
+section#writing-section{
+  display: flex;
+  flex-direction: row;
+  border-top: #eee 2px solid;
+  border-bottom: #eee 2px solid;
+  width: 100%;
+  height: 150px;
+}
+
+section#writing-section >div{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+div#new-userimg{
+  width: 60px;
+  height: 50px;
+  background-color: #888;
+  border-radius: 100%;
+}
+
+.fa-user{
+  font-size: 20px;
+  margin: auto;
+  color:white;
+}
+
+div#new-comment{
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+#uploadComment{
+  width: 100%;
+  height: 60%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+#uploadBtn{
+  width:90px;
+  height: 50px;
+  margin:10px 10px 0px 10px;
+  border: none;
+  outline: none;
+  background-color: #1DA1F2;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* contents-section */
+section#contents-section{
+  border-top: #f4f2f2 10px solid;
+  width: 100%;
+  height: 1000px;
+}
+
+ul{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+}
+
+li.content{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  border-bottom: #eee 2px solid;
+  margin:  20px;
+}
+
+.content .user-img{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: solid 2px #eee;
+  border-radius: 100%;
+}
+
+.user-img .fa-user{
+  font-size: 20px;
+  align-self: center;
+  color:#555;
+}
+
+.content .user-comment{
+  margin-left: 20px;
+}
+
+.user-comment span,div {
+  margin: 8px 0px;
+}
+
+.username{
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+}
+
+.comment{
+  width: 100%;
+  height: 50%;
+  font-size: 18px;
+  color: #555;
+}
+
+.createdAt{
+  font-size: 15px;
+  font-weight: 300;
+  color: #bbb;
+}
+
+
+/* sidebar style */
+section#sidebar{
+  align-self: flex-start;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar >section{
+  width: 250px;
+  height: 50px;
+}
+
+#searchbar{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  height: 40px;
+  margin:0px 20px 0px 25px;
+  border: none;
+  outline: none;
+  background-color: #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#searchbar >input{
+  width: 60%;
+  margin-left: 10px;
+  border:none;
+  outline: none;
+  background-color: #ddd;
+}
+
+#searchbar i{
+  margin-left: 20px;
+  margin-top: 4px;
+  color:white;
+}
+
+#trendbar{
+  width: 100%;
+  height: 450px;
+  margin-top:20px;
+  margin-left:25px;
+  background-color: rgba(238, 238, 238, 0.514);
+  border-radius: 8px;
+}
+
+#mytrend{
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  height: 50px;
+  border-bottom: 2px solid #ddd;
+}
+
+#mytrend p{
+  margin-left: 20px;
+  color:#555;
+}
+
+.trend{
+  color: #888;
+  margin: 15px 0px;
+  border-bottom: 2px solid #ddd;
+}
+
+.trend-subtitle{
+  margin: 8px 20px;
+  font-size: 12px;
+  font-weight: 500;
+
+}
+
+.trend-hashtag{
+  margin: 8px 20px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #555;
+}
+
+.trend-twitcount{
+  margin: 8px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#trend-more{
+  margin: 8px 20px;
+  font-weight: 500;
+  color: #1DA1F2;
+  cursor: pointer;
+}
