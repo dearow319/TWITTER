@@ -2,53 +2,50 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>X Mockup – Compact</title>
+  <title>X Mockup – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/34e274a1ff.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- 중앙 앱(화이트). 좌우는 body의 검정 배경 -->
   <div id="app">
     <!-- 좌측 메뉴 -->
     <menu>
       <section id="menubar">
-        <!-- 홈: 아이콘 + 글자 (FA5/FA6 호환 아이콘 동시 지정) -->
         <div class="menu">
           <i class="fas fa-home fa-solid fa-house"></i>
           <p class="menu-name">홈</p>
         </div>
-
+        <a class="menu" href="profile.html" title="프로필로 이동">
+          <i class="far fa-user"></i><p class="menu-name">프로필</p>
+        </a>
         <div class="menu"><i class="fas fa-hashtag"></i><p class="menu-name">탐색하기</p></div>
         <div class="menu"><i class="far fa-bell"></i><p class="menu-name">알림</p></div>
         <div class="menu"><i class="far fa-envelope"></i><p class="menu-name">쪽지</p></div>
         <div class="menu"><i class="far fa-bookmark"></i><p class="menu-name">북마크</p></div>
         <div class="menu"><i class="fas fa-list"></i><p class="menu-name">리스트</p></div>
-        <div class="menu"><i class="far fa-user"></i><p class="menu-name">프로필</p></div>
         <div class="menu"><i class="fas fa-ellipsis-h"></i><p class="menu-name">더 보기</p></div>
         <button id="menu-post" type="button">트윗</button>
       </section>
     </menu>
 
-    <!-- 메인 피드 -->
+    <!-- 메인 -->
     <main>
-      <!-- 헤더(로고/리프레시)는 숨김 처리됨: 여백 방지용 -->
+      <!-- 헤더(여백 문제 방지 위해 숨김) -->
       <header id="header" aria-hidden="true">
         <div id="logo" title="X"><i class="fab fa-x-twitter"></i></div>
         <button id="refresh" type="button" title="새로고침"><i class="fas fa-arrows-rotate"></i></button>
       </header>
 
-      <!-- 추천/팔로잉 탭 (최상단에 밀착) -->
+      <!-- 탭 (최상단 붙음) -->
       <nav id="timeline-tabs" role="tablist" aria-label="타임라인 필터">
         <button class="tab" role="tab" aria-selected="false">추천</button>
         <button class="tab active" role="tab" aria-selected="true">팔로잉</button>
       </nav>
 
-      <!-- 작성 박스 -->
+      <!-- 작성 -->
       <section id="compose">
-        <!-- 커스텀 이미지: has-img + --avatar:url('경로') -->
         <div class="user-avatar"><i class="far fa-user"></i></div>
         <div class="compose-box">
           <input type="text" placeholder="무슨 일이 일어나고 있나요?" />
@@ -56,7 +53,7 @@
         </div>
       </section>
 
-      <!-- 피드 (샘플 9개) -->
+      <!-- 피드 -->
       <section id="feed">
         <ul>
           <li class="tweet">
@@ -107,24 +104,16 @@
         <input type="text" placeholder="검색" />
       </div>
 
-      <!-- Premium 카드 -->
       <div id="subscribe-card">
         <strong>Premium 구독하기</strong>
         <p>구독하여 새로운 기능을 이용해 보세요.<br>자격을 충족하는 경우 수익 배분금도 받을 수 있습니다.</p>
         <button class="btn-subscribe" type="button">구독하기</button>
       </div>
 
-      <!-- 트렌드 -->
       <div id="trendbar">
         <div class="trend-title">나를 위한 트렌드</div>
-        <div class="trend">
-          <div class="trend-hash">#트렌드테스트</div>
-          <div class="trend-count">게시물 4,567</div>
-        </div>
-        <div class="trend">
-          <div class="trend-hash">#트렌드테스트2</div>
-          <div class="trend-count">게시물 3,565</div>
-        </div>
+        <div class="trend"><div class="trend-hash">#트렌드테스트</div><div class="trend-count">게시물 4,567</div></div>
+        <div class="trend"><div class="trend-hash">#트렌드테스트2</div><div class="trend-count">게시물 3,565</div></div>
         <div class="trend-more">더 보기</div>
       </div>
     </aside>
