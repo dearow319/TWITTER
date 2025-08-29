@@ -185,3 +185,12 @@ main{
   #menu-twit{ flex:1 1 100%; }
   main{ order:2; }
 }
+
+:root{
+  --compose-width: 560px; /* 원하는 폭으로 숫자만 조절 */
+}
+
+#writing-section{
+  max-width: var(--compose-width);
+  margin: 0 auto; /* 가운데 정렬 */
+}
