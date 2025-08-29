@@ -2,116 +2,137 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>트위터 목업</title>
+  <title>X Mockup – Compact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- CSS 파일명: style.css 로 통일 -->
   <link rel="stylesheet" href="style.css" />
-  <!-- 필요 없으면 아래 두 줄은 주석 처리 -->
-  <!-- <script src="data.js"></script> -->
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/34e274a1ff.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!-- 중앙 앱(화이트). 좌우는 body의 검정 배경 -->
+  <div id="app">
+    <!-- 좌측 메뉴 -->
   <menu>
-    <section id="menubar">
-      <div class="menu"><div><i class="fas fa-home"></i></div><p class="menu-name">홈</p></div>
-      <div class="menu"><div><i class="fas fa-hashtag"></i></div><p class="menu-name">탐색하기</p></div>
-      <div class="menu"><div><i class="fas fa-bell"></i></div><p class="menu-name">알림</p></div>
-      <div class="menu"><div><i class="fas fa-envelope"></i></div><p class="menu-name">쪽지</p></div>
-      <div class="menu"><div><i class="fas fa-bookmark"></i></div><p class="menu-name">북마크</p></div>
-      <div class="menu"><div><i class="fas fa-list-ul"></i></div><p class="menu-name">리스트</p></div>
-      <div class="menu"><div><i class="fas fa-user"></i></div><p class="menu-name">프로필</p></div>
-      <div class="menu"><div><i class="fas fa-comment-dots"></i></div><p class="menu-name">더 보기</p></div>
-      <button id="menu-twit">트윗</button>
-    </section>
-  </menu>  
+  <section id="menubar">
+    <!-- 홈: 아이콘 + 글자 -->
+    <div class="menu">
+      <i class="fas fa-home"></i>  <!-- 여기 아이콘 추가 -->
+      <p class="menu-name">홈</p>
+    </div>
 
-  <main>
-    <header id="header">
-      <div id="logo"><i class="fab fa-twitter"></i></div>
-      <button id="redo"><i class="fas fa-redo-alt"></i></button>
-    </header>
-
-    <section id="writing-section">
-      <div id="new-userimg"><i class="fas fa-user"></i></div>
-      <div id="new-comment">
-        <input type="text" id="uploadComment" placeholder="무슨일이 일어나고 있나요?">
-        <button id="uploadBtn">트윗</button>
-      </div>
-    </section>
-
-    <section id="contents-section">
-      <ul id="contents">
-        <li class="content">
-          <div class="user-img"><i class="fas fa-user"></i></div>
-          <div class="user-comment">
-            <span class="username">jooing</span>
-            <div class="comment">트위틀러 목업만들기</div>
-            <span class="createdAt">2020-12-18 12:30:20</span> 
-          </div>
-        </li>
-        <li class="content">
-          <div class="user-img"><i class="fas fa-user"></i></div>
-          <div class="user-comment">
-            <span class="username">ingikim</span>
-            <div class="comment">Welcome to Code States #codestates</div>
-            <span class="createdAt">2019-01-03 12:30:20</span> 
-          </div>
-        </li>
-        <li class="content">
-          <div class="user-img"><i class="fas fa-user"></i></div>
-          <div class="user-comment">
-            <span class="username">satya</span>
-            <div class="comment">this is test message #pair #programming</div>
-            <span class="createdAt">2019-01-04 18:30:20</span> 
-          </div>
-        </li>
-        <li class="content">
-          <div class="user-img"><i class="fas fa-user"></i></div>
-          <div class="user-comment">
-            <span class="username">sundar</span>
-            <div class="comment">code now! #work #hard</div>
-            <span class="createdAt">2019-01-05 07:30:20</span> 
-          </div>
-        </li>
-      </ul>
-    </section>
-  </main>
-
-  <section id="sidebar">
-    <section>
-      <div id="searchbar">
-        <div><i class="fas fa-search"></i></div>
-        <input type="text" placeholder="트위터 검색">
-      </div>
-      <div id="trendbar">
-        <div id="mytrend"><p>나를 위한 트렌드</p></div>
-        <div class="trend">
-          <div class="trend-subtitle">대한민국에서 트렌드 중</div>
-          <div class="trend-hashtag">#코드스테이츠</div>
-          <div class="trend-twitcount">5,567 트윗</div>
-        </div>
-        <div class="trend">
-          <div class="trend-subtitle">실시간 트렌드</div>
-          <div class="trend-hashtag">#김주혜</div>
-          <div class="trend-twitcount">4,567 트윗</div>
-        </div>
-        <div class="trend">
-          <div class="trend-subtitle">대한민국에서 트렌드 중</div>
-          <div class="trend-hashtag">#코드스테이츠</div>
-          <div class="trend-twitcount">5,567 트윗</div>
-        </div>
-        <div class="trend">
-          <div class="trend-subtitle">대한민국에서 트렌드 중</div>
-          <div class="trend-hashtag">#모각코</div>
-          <div class="trend-twitcount">25,567 트윗</div>
-        </div>
-        <div id="trend-more">더 보기</div>
-      </div>
-    </section>
+    <div class="menu"><i class="fas fa-hashtag"></i><p class="menu-name">탐색하기</p></div>
+    <div class="menu"><i class="far fa-bell"></i><p class="menu-name">알림</p></div>
+    <div class="menu"><i class="far fa-envelope"></i><p class="menu-name">쪽지</p></div>
+    <div class="menu"><i class="far fa-bookmark"></i><p class="menu-name">북마크</p></div>
+    <div class="menu"><i class="fas fa-list"></i><p class="menu-name">리스트</p></div>
+    <div class="menu"><i class="far fa-user"></i><p class="menu-name">프로필</p></div>
+    <div class="menu"><i class="fas fa-ellipsis-h"></i><p class="menu-name">더 보기</p></div>
+    <button id="menu-post">트윗</button>
   </section>
+</menu>
 
-  <!-- 필요 시 JS 추가 -->
-  <!-- <script src="script.js"></script> -->
-  <script src="https://kit.fontawesome.com/34e274a1ff.js" crossorigin="anonymous"></script>
+
+    <!-- 메인 피드 -->
+    <main>
+      <!-- 헤더 -->
+      <header id="header">
+        <div id="logo" title="X"><i class="fab fa-x-twitter"></i></div>
+        <button id="refresh" title="새로고침"><i class="fas fa-arrows-rotate"></i></button>
+      </header>
+
+      <!-- 추천/팔로잉 탭 (입력창 바로 위, 위여백 없음) -->
+      <nav id="timeline-tabs">
+        <button class="tab">추천</button>
+        <button class="tab active">팔로잉</button>
+      </nav>
+
+      <!-- 작성 박스 -->
+      <section id="compose">
+        <!-- 커스텀 이미지: has-img + --avatar:url('경로') -->
+        <div class="user-avatar"><i class="far fa-user"></i></div>
+        <div class="compose-box">
+          <input type="text" placeholder="무슨 일이 일어나고 있나요?">
+          <button>게시하기</button>
+        </div>
+      </section>
+
+      <!-- 피드 (샘플 9개) -->
+      <section id="feed">
+        <ul>
+          <!-- 1: 커스텀 이미지 사용 예시 (profiles/test1.jpg 넣으면 적용) -->
+          <li class="tweet">
+            <div class="user-avatar has-img" style="--avatar:url('profiles/test1.jpg')"><i class="far fa-user"></i></div>
+            <div class="tweet-content">
+              <span class="username">테스트1</span>
+              <p class="text">X 스타일 목업 – 블랙 가장자리</p>
+              <span class="time">2023-12-18 12:30</span>
+              <div class="tweet-actions">
+                <button><i class="far fa-comment"></i><span>3</span></button>
+                <button><i class="fas fa-retweet"></i><span>2</span></button>
+                <button><i class="far fa-heart"></i><span>5</span></button>
+                <button><i class="fas fa-share"></i></button>
+              </div>
+            </div>
+          </li>
+
+          <!-- 2 -->
+          <li class="tweet">
+            <div class="user-avatar has-img" style="--avatar:url('profiles/test2.jpg')"><i class="far fa-user"></i></div>
+            <div class="tweet-content">
+              <span class="username">테스트2</span>
+              <p class="text">Welcome to the compact timeline.</p>
+              <span class="time">2023-12-20 09:12</span>
+              <div class="tweet-actions">
+                <button><i class="far fa-comment"></i><span>1</span></button>
+                <button><i class="fas fa-retweet"></i><span>4</span></button>
+                <button><i class="far fa-heart"></i><span>12</span></button>
+                <button><i class="fas fa-share"></i></button>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3~9 -->
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트3</span><p class="text">수정1 #dev</p><span class="time">2023-12-21 08:10</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>0</span></button><button><i class="fas fa-retweet"></i><span>1</span></button><button><i class="far fa-heart"></i><span>2</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트4</span><p class="text">수정2</p><span class="time">2023-12-21 10:22</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>2</span></button><button><i class="fas fa-retweet"></i><span>3</span></button><button><i class="far fa-heart"></i><span>7</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트5</span><p class="text">수정3</p><span class="time">2023-12-22 07:00</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>1</span></button><button><i class="fas fa-retweet"></i><span>0</span></button><button><i class="far fa-heart"></i><span>4</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트6</span><p class="text">수정4</p><span class="time">2023-12-22 09:15</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>0</span></button><button><i class="fas fa-retweet"></i><span>0</span></button><button><i class="far fa-heart"></i><span>1</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트7</span><p class="text">수정5</p><span class="time">2023-12-22 11:31</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>5</span></button><button><i class="fas fa-retweet"></i><span>2</span></button><button><i class="far fa-heart"></i><span>9</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트8</span><p class="text">수정6</p><span class="time">2023-12-22 14:05</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>2</span></button><button><i class="fas fa-retweet"></i><span>1</span></button><button><i class="far fa-heart"></i><span>3</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+          <li class="tweet"><div class="user-avatar"><i class="far fa-user"></i></div><div class="tweet-content"><span class="username">테스트9</span><p class="text">수정7</p><span class="time">2023-12-22 18:47</span><div class="tweet-actions"><button><i class="far fa-comment"></i><span>0</span></button><button><i class="fas fa-retweet"></i><span>0</span></button><button><i class="far fa-heart"></i><span>0</span></button><button><i class="fas fa-share"></i></button></div></div></li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- 우측 사이드 -->
+    <aside id="sidebar">
+      <div id="searchbar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="검색">
+      </div>
+
+      <!-- Premium 카드 -->
+      <div id="subscribe-card">
+        <strong>Premium 구독하기</strong>
+        <p>구독하여 새로운 기능을 이용해 보세요.<br>자격을 충족하는 경우 수익 배분금도 받을 수 있습니다.</p>
+        <button class="btn-subscribe">구독하기</button>
+      </div>
+
+      <!-- 트렌드 -->
+      <div id="trendbar">
+        <div class="trend-title">나를 위한 트렌드</div>
+        <div class="trend">
+          <div class="trend-hash">#트렌드테스트</div>
+          <div class="trend-count">게시물 4,567</div>
+        </div>
+        <div class="trend">
+          <div class="trend-hash">#트렌드테스트2</div>
+          <div class="trend-count">게시물 3,565</div>
+        </div>
+        <div class="trend-more">더 보기</div>
+      </div>
+    </aside>
+  </div>
 </body>
 </html>
+
